@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  <title>登録フォーム</title>
+</head>
+<body>
+  <main class="container">
+    <h1>登録フォーム</h1>
+    <form>
+      
+      <!-- これは許す -->
+      <div class="grid">
+        <label for="lastname">
+          姓
+          <input type="text" name="lastname" placeholder="例）登録" required>
+        </label>
+        <label for="firstname">
+          名
+          <input type="text" name="firstname" placeholder="例）フォミ男" required>
+        </label>
+      </div>
+
+      <!-- なぜか半角縛り，しかも小文字を使えない -->
+      <div class="grid">
+        <label for="lastname">
+          セイ
+          <input type="text" name="lastname" placeholder="例）ﾄｳﾛｸ" pattern="^[ｰ-ﾝｦ]+$" required>
+          <small>半角カナで入力してください(小文字を除く)</small>
+        </label>
+        <label for="firstname">
+          メイ
+          <input type="text" name="firstname" placeholder="例）ﾌｵﾐｵ" pattern="^[ｰ-ﾝｦ]+$" required>
+          <small>半角カナで入力してください(小文字を除く)</small>
+        </label>
+      </div>
+
+      <!-- なぜか全角数字縛り，しかもハイフンつき -->
+      <label for="">郵便番号</label>
+      <input type="text" name="postalcode" placeholder="例）１７９－００７５" pattern="^[０-９－]+$" required>
+      <small>全角数字で入力してください(ハイフンを含む)</small>
+
+      <!-- なぜか + が使えない -->
+      <label for="email">メールアドレス</label>
+      <input type="email" name="email" placeholder="例）email@example.com" pattern="^[a-zA-Z0-9_.-]+$" required>
+
+      <!-- なぜかコピペさせてくれない -->
+      <label for="email">メールアドレスの再入力</label>
+      <input type="email" name="email" placeholder="例）email@example.com" pattern="^[a-zA-Z0-9_.-]+$" onpaste="return false" required>
+
+      <button type="submit">登録</button>
+      <p>何も起こらないので注意してください</p>
+      
+    </form>
+  </main>
+</body>
+</html>
